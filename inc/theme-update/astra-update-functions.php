@@ -146,6 +146,32 @@ function astra_responsive_base_background_option() {
 	}
 
 	update_option( 'astra-settings', $theme_options );
-
 }
 
+function astra_responsive_bg_option_for_sidebar_footer() {
+
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( false === get_option( 'site-layout-outside-bg-obj-responsive', false ) ) {
+
+		$theme_options['site-layout-outside-bg-obj-responsive']['desktop'] = $theme_options['site-layout-outside-bg-obj'];
+		$theme_options['site-layout-outside-bg-obj-responsive']['tablet']  = array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		);
+		$theme_options['site-layout-outside-bg-obj-responsive']['mobile']  = array(
+			'background-color'      => '',
+			'background-image'      => '',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'auto',
+			'background-attachment' => 'scroll',
+		);
+	}
+
+	update_option( 'astra-settings', $theme_options );
+}

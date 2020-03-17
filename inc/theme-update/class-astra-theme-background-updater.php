@@ -42,6 +42,9 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			'2.3.4' => array(
 				'astra_responsive_base_background_option',
 			),
+			'2.3.5' => array(
+				'astra_responsive_bg_option_for_sidebar_footer',
+			),
 		);
 
 		/**
