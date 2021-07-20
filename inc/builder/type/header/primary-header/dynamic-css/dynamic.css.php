@@ -34,7 +34,7 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 	$parse_css = '';
 
 	$hb_header_height = astra_get_option( 'hb-header-height' );
-	
+
 	// Header Height.
 	$hb_header_height_desktop = ( isset( $hb_header_height['desktop'] ) && ! empty( $hb_header_height['desktop'] ) ) ? $hb_header_height['desktop'] : '';
 	$hb_header_height_tablet  = ( isset( $hb_header_height['tablet'] ) && ! empty( $hb_header_height['tablet'] ) ) ? $hb_header_height['tablet'] : '';
@@ -61,7 +61,7 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 
 		$parse_css .= astra_parse_css( $common_css_cart_output );
 	}
-	
+
 
 	$astra_header_width         = astra_get_option( 'hb-header-main-layout-width' );
 	$header_breadcrumb_position = astra_get_option( 'breadcrumb-position' );
@@ -75,7 +75,7 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 				'padding-right' => '35px',
 			),
 		);
-		
+
 		/* Parse CSS from array()*/
 		$parse_css .= astra_parse_css( $general_global_responsive );
 
@@ -96,7 +96,7 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 	}
 
 	$padding_below_breakpoint = array(
-		'#masthead .ast-mobile-header-wrap .ast-above-header-bar, #masthead .ast-mobile-header-wrap .ast-primary-header-bar, #masthead .ast-mobile-header-wrap .ast-below-header-bar' => array(
+		'#masthead .ast-mobile-header-wrap .ast-primary-header-bar, #masthead .ast-mobile-header-wrap .ast-below-header-bar' => array(
 			'padding-left'  => '20px',
 			'padding-right' => '20px',
 		),
@@ -105,28 +105,45 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 	$parse_css .= astra_parse_css( $padding_below_breakpoint, '', astra_get_tablet_breakpoint() );
 
 	// Header Separator.
-	$header_separator       = astra_get_option( 'hb-header-main-sep' );
-	$header_separator_color = astra_get_option( 'hb-header-main-sep-color' );
+	$header_separator = absint( astra_get_option( 'hb-header-main-sep' ) );
 
-	$meta_style = array(
-		'.ast-header-break-point .ast-primary-header-bar' => array(
-			'border-bottom-width' => astra_get_css_value( $header_separator, 'px' ),
-			'border-bottom-color' => esc_attr( $header_separator_color ),
-			'border-bottom-style' => 'solid',
-		),
-	);
+	// Apply border only when it has positive value.
+	if ( $header_separator ) {
+		$header_separator_color = astra_get_option( 'hb-header-main-sep-color' );
 
-	$parse_css .= astra_parse_css( $meta_style );
+		$border_responsive_style = array(
+			'.ast-header-break-point .ast-primary-header-bar' => array(
+				'border-bottom-width' => astra_get_css_value( $header_separator, 'px' ),
+				'border-bottom-color' => esc_attr( $header_separator_color ),
+				'border-bottom-style' => 'solid',
+			),
+		);
 
-	$meta_style = array(
-		'.ast-primary-header-bar' => array(
-			'border-bottom-width' => astra_get_css_value( $header_separator, 'px' ),
-			'border-bottom-color' => esc_attr( $header_separator_color ),
-			'border-bottom-style' => 'solid',
-		),
-	);
 
-	$parse_css .= astra_parse_css( $meta_style, astra_get_tablet_breakpoint( '', 1 ) );
+		$border_desktop_style = array(
+			'.ast-primary-header-bar' => array(
+				'border-bottom-width' => astra_get_css_value( $header_separator, 'px' ),
+				'border-bottom-color' => esc_attr( $header_separator_color ),
+				'border-bottom-style' => 'solid',
+			),
+		);
+
+	} else {
+		$border_responsive_style = array(
+			'.ast-header-break-point .ast-primary-header-bar' => array(
+				'border-bottom-style' => 'none',
+			),
+		);
+
+		$border_desktop_style = array(
+			'.ast-primary-header-bar' => array(
+				'border-bottom-style' => 'none',
+			),
+		);
+	}
+
+	$parse_css .= astra_parse_css( $border_responsive_style );
+	$parse_css .= astra_parse_css( $border_desktop_style, astra_get_tablet_breakpoint( '', 1 ) );
 
 	$header_bg_obj = astra_get_option( 'hb-header-bg-obj-responsive' );
 
@@ -168,8 +185,6 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 
 	$_section = 'section-primary-header-builder';
 
-	$selector = '.site-primary-header-wrap[data-section="ast_header_primary"]';
-
 	$parent_selector = '.ast-desktop .ast-primary-header-bar.main-header-bar, .ast-header-break-point #masthead .ast-primary-header-bar.main-header-bar';
 
 	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( $_section, $parent_selector );
@@ -182,7 +197,7 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 	// Desktop CSS.
 	$css_output_desktop = array(
 
-		'.astra-hfb-header .site-header' => array(
+		'.ast-hfb-header .site-header' => array(
 			// Margin CSS.
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
@@ -194,7 +209,7 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 	// Tablet CSS.
 	$css_output_tablet = array(
 
-		'.astra-hfb-header .site-header' => array(
+		'.ast-hfb-header .site-header' => array(
 			// Margin CSS.
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
@@ -206,7 +221,7 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 	// Mobile CSS.
 	$css_output_mobile = array(
 
-		'.astra-hfb-header .site-header' => array(
+		'.ast-hfb-header .site-header' => array(
 			// Margin CSS.
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'mobile' ),
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),

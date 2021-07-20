@@ -518,6 +518,20 @@
         }
     },
     {
+        "Antonio": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Arapey": {
             "variants": [
                 "regular",
@@ -553,14 +567,24 @@
     {
         "Archivo": {
             "variants": [
+                "100",
+                "200",
+                "300",
                 "regular",
-                "italic",
                 "500",
-                "500italic",
                 "600",
-                "600italic",
                 "700",
-                "700italic"
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
             ],
             "category": "sans-serif"
         }
@@ -686,12 +710,12 @@
         "Asap": {
             "variants": [
                 "regular",
-                "italic",
                 "500",
-                "500italic",
                 "600",
-                "600italic",
                 "700",
+                "italic",
+                "500italic",
+                "600italic",
                 "700italic"
             ],
             "category": "sans-serif"
@@ -1602,6 +1626,16 @@
         }
     },
     {
+        "Bona Nova": {
+            "variants": [
+                "regular",
+                "italic",
+                "700"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Bonbon": {
             "variants": [
                 "regular"
@@ -1655,7 +1689,11 @@
                 "regular",
                 "500",
                 "600",
-                "700"
+                "700",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic"
             ],
             "category": "serif"
         }
@@ -2748,6 +2786,14 @@
         }
     },
     {
+        "Dela Gothic One": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Delius": {
             "variants": [
                 "regular"
@@ -3091,6 +3137,22 @@
         }
     },
     {
+        "Encode Sans SC": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Encode Sans Semi Condensed": {
             "variants": [
                 "100",
@@ -3406,6 +3468,14 @@
         }
     },
     {
+        "Festive": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Finger Paint": {
             "variants": [
                 "regular"
@@ -3675,6 +3745,14 @@
                 "regular"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Fuggles": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
         }
     },
     {
@@ -5024,6 +5102,16 @@
         }
     },
     {
+        "Karantina": {
+            "variants": [
+                "300",
+                "regular",
+                "700"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Karla": {
             "variants": [
                 "200",
@@ -5166,6 +5254,16 @@
                 "regular"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Kiwi Maru": {
+            "variants": [
+                "300",
+                "regular",
+                "500"
+            ],
+            "category": "serif"
         }
     },
     {
@@ -5317,7 +5415,7 @@
                 "800italic",
                 "900italic"
             ],
-            "category": "display"
+            "category": "sans-serif"
         }
     },
     {
@@ -5508,6 +5606,20 @@
                 "700"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Lexend": {
+            "variants": [
+                "100",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -6864,6 +6976,14 @@
         }
     },
     {
+        "New Tegomin": {
+            "variants": [
+                "regular"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "News Cycle": {
             "variants": [
                 "regular",
@@ -7376,6 +7496,14 @@
         }
     },
     {
+        "Orelega One": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Orienta": {
             "variants": [
                 "regular"
@@ -7400,6 +7528,14 @@
                 "500",
                 "600",
                 "700"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Otomanopee One": {
+            "variants": [
+                "regular"
             ],
             "category": "sans-serif"
         }
@@ -8145,6 +8281,14 @@
         }
     },
     {
+        "Qahiri": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Quando": {
             "variants": [
                 "regular"
@@ -8442,7 +8586,10 @@
     {
         "Reem Kufi": {
             "variants": [
-                "regular"
+                "regular",
+                "500",
+                "600",
+                "700"
             ],
             "category": "sans-serif"
         }
@@ -8794,6 +8941,14 @@
                 "regular"
             ],
             "category": "display"
+        }
+    },
+    {
+        "STIX Two Math": {
+            "variants": [
+                "regular"
+            ],
+            "category": "serif"
         }
     },
     {
@@ -10122,7 +10277,40 @@
         }
     },
     {
+        "Tourney": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Trade Winds": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Train One": {
             "variants": [
                 "regular"
             ],
@@ -10264,6 +10452,14 @@
                 "700italic"
             ],
             "category": "monospace"
+        }
+    },
+    {
+        "Uchen": {
+            "variants": [
+                "regular"
+            ],
+            "category": "serif"
         }
     },
     {
@@ -10659,6 +10855,14 @@
         }
     },
     {
+        "Yomogi": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Yrsa": {
             "variants": [
                 "300",
@@ -10700,6 +10904,31 @@
                 "regular"
             ],
             "category": "serif"
+        }
+    },
+    {
+        "Zen Dots": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Zen Loop": {
+            "variants": [
+                "regular",
+                "italic"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Zen Tokyo Zoo": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
         }
     },
     {

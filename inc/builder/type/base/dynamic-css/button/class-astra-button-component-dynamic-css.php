@@ -34,17 +34,19 @@ class Astra_Button_Component_Dynamic_CSS {
 		$generated_css = '';
 
 		$number_of_button = ( 'header' === $builder_type ) ? Astra_Builder_Helper::$num_of_header_button : Astra_Builder_Helper::$num_of_footer_button;
+		$hb_button_flag   = false;
 
 		for ( $index = 1; $index <= $number_of_button; $index++ ) {
 
 			if ( ! Astra_Builder_Helper::is_component_loaded( 'button-' . $index, $builder_type ) ) {
 				continue;
 			}
+			$hb_button_flag = ( 'header' === $builder_type ) ? true : false;
 
 			$_section = ( 'header' === $builder_type ) ? 'section-hb-button-' . $index : 'section-fb-button-' . $index;
 			$context  = ( 'header' === $builder_type ) ? 'hb' : 'fb';
-			$margin   = astra_get_option( $_section . '-margin' );
-			$_prefix  = 'button' . $index;
+
+			$_prefix = 'button' . $index;
 
 			$selector             = '.ast-' . $builder_type . '-button-' . $index;
 			$button_font_size     = astra_get_option( $builder_type . '-' . $_prefix . '-font-size' );
@@ -191,6 +193,15 @@ class Astra_Button_Component_Dynamic_CSS {
 
 			$visibility_selector = '.ast-' . $builder_type . '-button-' . $index . '[data-section="' . $_section . '"]';
 			$generated_css      .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $visibility_selector );
+		}
+
+		if ( true === $hb_button_flag ) {
+			$static_hb_css = array(
+				'[data-section*="section-hb-button-"] .menu-link' => array(
+					'display' => 'none',
+				),
+			);
+			return astra_parse_css( $static_hb_css ) . $generated_css;
 		}
 
 		return $generated_css;

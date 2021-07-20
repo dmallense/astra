@@ -73,6 +73,36 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			'3.0.1' => array(
 				'astra_clear_assets_cache',
 			),
+			'3.3.0' => array(
+				'astra_gutenberg_pattern_compatibility',
+				'astra_icons_svg_compatibility',
+				'astra_check_flex_based_css',
+			),
+			'3.4.0' => array(
+				'astra_update_cart_style',
+			),
+			'3.5.0' => array(
+				'astra_update_related_posts_grid_layout',
+				'astra_site_title_tagline_responsive_control_migration',
+			),
+			'3.6.0' => array(
+				'astra_headings_font_support',
+				'astra_remove_logo_max_width',
+				'astra_transparent_header_default_value',
+			),
+			'3.6.1' => array(
+				'astra_clear_all_assets_cache',
+			),
+			'3.6.3' => array(
+				'astra_button_default_values_updated',
+				'astra_clear_all_assets_cache',
+			),
+			'3.6.4' => array(
+				'astra_update_underline_link_setting',
+			),
+			'3.6.5' => array(
+				'astra_support_block_editor',
+			),
 		);
 
 		/**

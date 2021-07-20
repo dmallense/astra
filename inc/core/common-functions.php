@@ -110,8 +110,6 @@ if ( ! function_exists( 'astra_responsive_font' ) ) {
 	 */
 	function astra_responsive_font( $font, $device = 'desktop', $default = '' ) {
 
-		$css_val = '';
-
 		if ( isset( $font[ $device ] ) && isset( $font[ $device . '-unit' ] ) ) {
 			if ( '' != $default ) {
 				$font_size = astra_get_css_value( $font[ $device ], $font[ $device . '-unit' ], $default );
@@ -408,7 +406,8 @@ if ( ! function_exists( 'astra_parse_css' ) ) {
 				}
 
 				if ( ! count( $properties ) ) {
-					continue; }
+					continue;
+				}
 
 				$temp_parse_css   = $selector . '{';
 				$properties_added = 0;
@@ -416,7 +415,8 @@ if ( ! function_exists( 'astra_parse_css' ) ) {
 				foreach ( $properties as $property => $value ) {
 
 					if ( '' == $value && 0 !== $value ) {
-						continue; }
+						continue;
+					}
 
 					$properties_added++;
 					$temp_parse_css .= $property . ':' . $value . ';';
@@ -575,7 +575,7 @@ if ( ! function_exists( 'astra_get_option_meta' ) ) {
 
 			if ( empty( $value ) || 'default' == $value ) {
 
-				if ( true == $only_meta ) {
+				if ( true === $only_meta ) {
 					return false;
 				}
 
@@ -830,7 +830,7 @@ if ( ! function_exists( 'astra_the_title' ) ) {
 		$blog_post_title   = astra_get_option( 'blog-post-structure' );
 		$single_post_title = astra_get_option( 'blog-single-post-structure' );
 
-		if ( ( ( ! is_singular() && in_array( 'title-meta', $blog_post_title ) ) || ( is_single() && in_array( 'single-title-meta', $single_post_title ) ) || is_page() ) ) {
+		if ( ( ! is_singular() && in_array( 'title-meta', $blog_post_title ) ) || ( is_single() && in_array( 'single-title-meta', $single_post_title ) ) || is_page() ) {
 			if ( apply_filters( 'astra_the_title_enabled', true ) ) {
 
 				$title  = astra_get_the_title( $post_id );
@@ -1174,13 +1174,14 @@ if ( ! function_exists( 'astra_get_search_form' ) ) :
 	 */
 	function astra_get_search_form( $echo = true ) {
 
-		$form = '<form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">
-			<label>
-				<span class="screen-reader-text">' . _x( 'Search for:', 'label', 'astra' ) . '</span>
-				<input type="search" class="search-field" ' . apply_filters( 'astra_search_field_toggle_data_attrs', '' ) . ' placeholder="' . apply_filters( 'astra_search_field_placeholder', esc_attr_x( 'Search &hellip;', 'placeholder', 'astra' ) ) . '" value="' . get_search_query() . '" name="s" role="search" tabindex="-1"/>
-			</label>
-			<button type="submit" class="search-submit" value="' . esc_attr__( 'Search', 'astra' ) . '"  aria-label="search submit"><i class="astra-search-icon"></i></button>
-		</form>';
+		$form = get_search_form(
+			array(
+				'input_placeholder' => apply_filters( 'astra_search_field_placeholder', esc_attr_x( 'Search &hellip;', 'placeholder', 'astra' ) ),
+				'data_attributes'   => apply_filters( 'astra_search_field_toggle_data_attrs', '' ),
+				'input_value'       => get_search_query(),
+				'show_input_submit' => false,
+			) 
+		);
 
 		/**
 		 * Filters the HTML output of the search form.
@@ -1504,7 +1505,7 @@ function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
 
 /**
  * Common function to check is pagination is enabled on current page.
- * 
+ *
  * @since 3.0.1
  * @return boolean
  */
@@ -1514,7 +1515,7 @@ function is_astra_pagination_enabled() {
 	return ( $wp_query->max_num_pages > 1 && apply_filters( 'astra_pagination_enabled', true ) );
 }
 
-/** 
+/**
  * Verify is current post comments are enabled or not for applying dynamic CSS.
  *
  * @since 3.0.1

@@ -52,8 +52,6 @@
 
 	.main-header-bar-navigation {
 
-		height: 100%;
-
 		&:empty {
 		    padding: 0;
 		}
@@ -63,108 +61,13 @@
 		}
 
 		.menu-item-has-children > .menu-link:after {
-			@include ast-has-child-menu-item();
 			line-height: normal;
 		}
 
-		.ast-search-icon {
-			display: block;
-			z-index: 4;
-			position: relative;
-		}
-
-		&.toggle-on {
-			padding-top: 1em;
-		}
 	}
 
-	.ast-search-menu-icon .search-form {
-		background-color: #ffffff;
-	}
 }
 
-.ast-search-menu-icon {
-
-	&.slide-search .search-form {
-		backface-visibility: visible;
-		visibility: hidden;
-	    opacity: 0;
-	    transition: all .2s;
-	    position: absolute;
-	    z-index: 3;
-	    right: -1em;
-	    top: 50%;
-	    transform: translateY(-50%);
-    }
-	&.ast-dropdown-active.slide-search .search-form {
-		visibility: visible;
-	    opacity: 1;
-	}
-
-	.search-form {
-		border: 1px solid #e7e7e7;
-		line-height: normal;
-		padding: 0 3em 0 0;
-		@include ast-border-radius();
-		display: inline-block;
-		backface-visibility: hidden;
-		position: relative;
-		color: inherit;
-		background-color: #fff;
-	}
-
-	.astra-search-icon {
-		display: flex;
-		line-height: normal;
-
-		&:focus {
-			outline: none;
-		}
-	}
-
-
-	.search-field {
-		border: none;
-		background-color: transparent;
-		transition: width .2s;
-		border-radius: inherit;
-		color: inherit;
-		font-size: inherit;
-		width: 0;
-		color: #757575;
-	}
-
-	.search-submit {
-		display: none;
-		background: none;
-		border: none;
-		font-size: 1.3em;
-		color: #757575;
-	}
-
-	&.ast-dropdown-active {
-		visibility: visible;
-		opacity: 1;
-		position: relative;
-		.search-field {
-			width: 235px;
-		}
-	}
-}
-.ast-header-search .ast-search-menu-icon {
-	&.slide-search,
-	&.ast-inline-search {
-		.search-form {
-			display: flex;
-			align-items: center;
-		}
-	}
-}
-.ast-search-icon {
-    z-index: 4;
-    position: relative;
-    line-height: normal;
-}
 
 /* Hide Mobile logo. */
 .custom-mobile-logo-link{
@@ -190,16 +93,9 @@
 		width: 100%;
 	}
 
-	.main-header-bar-navigation {
-		.menu-item-has-children > .menu-link:after {
-			display: none;
-		}
-	}
-
 	.main-header-bar {
 		display: block;
 		line-height: 3;
-
 		.main-header-bar-navigation {
 			line-height: 3;
 			.sub-menu {
@@ -222,13 +118,6 @@
 					font-weight: normal;
 					line-height: inherit;
 					transition: all .2s;
-					&::before {
-						font-weight: bold;
-						content: "\e900";
-						font-family: 'Astra';
-						text-decoration: inherit;
-						display: inline-block;
-					}
 				}
 			}
 			.ast-submenu-expanded {
@@ -275,80 +164,17 @@
 			top: 0;
 		}
 	}
-	.ast-has-mobile-header-logo {
-		.custom-logo-link{
-			display: none;
-		}
-		.custom-mobile-logo-link{
-			display: inline-block;
-		}
-	}
-	&.ast-mobile-inherit-site-logo{
-		.ast-has-mobile-header-logo{
-			.custom-logo-link,
-			.astra-logo-svg{
-				display: block;
-			}
-		}
-	}
 	.ast-builder-menu {
 		width: 100%;
 	}
 	.ast-mobile-header-wrap .ast-flex {
-
-		&.inline-on-mobile {
-			flex-wrap: unset;
-			.menu-item.menu-item-has-children {
-				margin-right: 10px;
-			}
-			.menu-item.ast-submenu-expanded > .sub-menu {
-				display: block;
-				position: absolute;
-				right: auto;
-				left: 0;
-				.menu-item .ast-menu-toggle {
-					padding: 0;
-					right: 1em;
-				}
-				.menu-link {
-					padding: .1em 1em;
-				}
-			}
-			.menu-item.ast-submenu-expanded > .sub-menu > .menu-item > .sub-menu {
-				left: 100%;
-				right: auto;
-				
-			}
-			.menu-item.ast-submenu-expanded > .sub-menu > .menu-item {
-				.ast-menu-toggle::before {
-					transform: rotate(-90deg);
-				}
-				&.ast-submenu-expanded {
-					.ast-menu-toggle::before {
-						transform: rotate(-270deg);
-					}
-				}
-			}
-			.menu-item > .sub-menu > .menu-item .menu-link:before {
-				content: none;
-			}
-			.ast-menu-toggle {
-				right: -15px;
-			}
-		}
 		&.stack-on-mobile {
 			flex-wrap: wrap;
 		}
 	}
-	.inline-on-mobile {
-		.sub-menu {
-			width: 150px;
-		}
-	}
 }
 .ast-desktop {
-	.main-header-menu > .menu-item .sub-menu:before,
-	.main-header-menu > .menu-item .astra-full-megamenu-wrapper:before {
+	.main-header-menu > .menu-item .sub-menu:before {
 		position: absolute;
 		content: '';
 		top: 0;
