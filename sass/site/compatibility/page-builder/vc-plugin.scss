@@ -1,6 +1,7 @@
 /**
  * Astra Theme compatibility with Visual Composer
  */
+@import '../../variables-site/structure';
 
 .js_active {
 
@@ -33,12 +34,6 @@
 				}
 
 				@media (max-width: $mx-col-md) { 
-					margin-top: 1.5em;
-				}
-			}
-
-			@media (max-width: $mx-col-md) {
-				#secondary {
 					margin-top: 1.5em;
 				}
 			}
